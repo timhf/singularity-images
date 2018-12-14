@@ -1,0 +1,24 @@
+Bootstrap: localimage
+From: ../output/base.img
+
+%labels
+  Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools
+
+%help
+  gcc 8 building image
+
+%post
+  apt-get update
+  apt-get install -y gcc-8
+  apt-get install -y g++-8
+  apt-get install -y libtool
+  apt-get install -y make
+  apt-get install -y gdb
+  apt-get install -y autoconf
+  apt-get install -y automake
+  apt-get install -y autotools-dev
+  apt-get install -y cmake
+  apt-get install -y linux-headers-generic
+  apt-get install -y linux-libc-dev
+  apt-get install -y libgc-dev
+  apt-get install -y libboost-all-dev
