@@ -1,16 +1,16 @@
 Bootstrap: localimage
-From: ../output/base.img
+From: ../output/base_ubuntu_1604.img
 
 %labels
   Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools
 
 %help
-  gcc 7 building image
+  gcc 4.7 compiling image
 
 %post
   apt-get update
-  apt-get install -y gcc-7
-  apt-get install -y g++-7
+  apt-get install -y gcc-4.7
+  apt-get install -y g++-4.7
   apt-get install -y libtool
   apt-get install -y make
   apt-get install -y gdb

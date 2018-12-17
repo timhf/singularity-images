@@ -1,5 +1,5 @@
 Bootstrap: localimage
-From: ../output/base.img
+From: ../output/base_ubuntu_1804.img
 
 %labels
   Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools

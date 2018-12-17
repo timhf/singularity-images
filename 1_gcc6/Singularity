@@ -1,11 +1,11 @@
 Bootstrap: localimage
-From: ../output/base.img
+From: ../output/base_ubuntu_1804.img
 
 %labels
   Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools
 
 %help
-  gcc 6 building image
+  gcc 6 tools
 
 %post
   apt-get update

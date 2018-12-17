@@ -2,7 +2,7 @@ Bootstrap: docker
 From: ubuntu:16.04
 
 %labels
-  Features base-image, vim, git, wget, curl, ....
+  Features base ubuntu 16.04, git, wget, curl
 
 %help
   This is the base image for all cluster images
@@ -14,3 +14,4 @@ From: ubuntu:16.04
   apt-get install -y wget
   apt-get install -y htop
   apt-get install -y curl
+  apt-get install -y xz-utils

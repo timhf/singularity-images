@@ -1,0 +1,44 @@
+Bootstrap: localimage
+From: ../output/base_ubuntu_1804.img
+
+%labels
+  Features python 3.7.1, conda
+
+%help
+  python, gcc, dpkg, libc6, miniconda
+
+%post
+  apt-get update
+  apt-get install -y netbase
+  apt-get install -y zlib1g-dev
+  apt-get install -y dpkg-dev
+  apt-get install -y libc6-dev
+  apt-get install -y gcc
+
+  #env
+  export PYTHON_VERSION=3.7.1
+
+
+  #python
+  wget -O python.tar.xz "https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz"
+	mkdir -p /usr/src/python
+	tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz
+	rm python.tar.xz
+
+	cd /usr/src/python
+  ./configure
+	make -j4
+	make install
+
+  python3 --version
+
+  apt-get install -y python3-dev
+
+  #conda
+  cd /
+  curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh
+  bash /tmp/miniconda.sh -bfp /usr/local
+  rm -rf /tmp/miniconda.sh
+  conda update conda
+
+  conda install ipython3
