@@ -9,8 +9,8 @@ From: ../output/python2.7.img
 
 %post
   apt-get update
-  apt-get install libopenblas-dev
+  apt-get install -y libopenblas-dev
 
-  conda install six, tornado, pillow
-  conda install numpy, pandas, matplotlib
+  conda install six tornado pillow
+  conda install numpy pandas matplotlib
   conda install -c conda-forge tensorflow

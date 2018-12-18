@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/python2.7.img
 
 %labels
-  Features numpy, pandas, matplot, scikit, scipy, seaborn, statsmodels, bokeh
+  Features numpy, pandas, matplot, scikit-learn and image, scipy, seaborn, statsmodels, bokeh
 
 %help
   Python 2.7 with all data science packages
@@ -10,6 +10,7 @@ From: ../output/python2.7.img
 %post
   apt-get update
 
-  conda install six, tornado, pillow
-  conda install numpy, pandas, matplotlib, scipy, scikit-learn
-  conda install seaborn, statsmodels, bokeh
+  conda install six tornado pillow
+  conda install numpy pandas matplotlib scipy
+  conda install scikit-learn scikit-image
+  conda install seaborn statsmodels bokeh

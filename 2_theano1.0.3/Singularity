@@ -9,10 +9,10 @@ From: ../output/python3.6.img
 
 %post
   apt-get update
-  apt-get install libopenblas-dev
+  apt-get install -y libopenblas-dev
 
-  conda install six, tornado, pillow
-  conda install numpy, pandas, matplotlib
+  conda install six tornado pillow
+  conda install numpy pandas matplotlib
   conda install -c conda-forge theano
   conda install -c conda-forge/label/gcc7 theano
   conda install -c conda-forge/label/broken theano

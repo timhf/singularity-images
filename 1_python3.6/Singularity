@@ -41,4 +41,4 @@ From: ../output/base_ubuntu_1804.img
   rm -rf /tmp/miniconda.sh
   conda update conda
 
-  conda install ipython3
+  conda install -c anaconda ipython

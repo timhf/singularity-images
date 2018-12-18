@@ -28,15 +28,16 @@ for dirs in * ; do
       echo "###### Building: " ${IMAGE} "######"
       if [ -f ./${dirs}/Singularity ]; then
         #echo "hi"
+        cd ${dirs}
         OUTIMAGE=../output/${IMAGE}.img
+        echo $OUTIMAGE
         if [ -f $OUTIMAGE ]; then
-          echo "    >> Not building ${IMAGE}, file exists!"
+          echo "    >> Not building $IMAGE, file exists!"
         else
-          cd ${dirs}
           touch ./build.log
-          sudo singularity build ${OUTIMAGE} ./Singularity > ./build.log
-          cd ..
+          sudo singularity build $OUTIMAGE ./Singularity > ./build.log
         fi
+        cd .. 
       fi
     fi
   fi
