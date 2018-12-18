@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #build base scripts
-echo "## Building Base ##"
+echo "###### Building base image ######"
 
 mkdir -p ./output
 
@@ -11,12 +11,12 @@ touch base_ubuntu_1804.log
 if [ ! -f ../output/base_ubuntu_1604.img ]; then
   sudo singularity build ../output/base_ubuntu_1604.img ubuntu1604.Singularity > ./base_ubuntu_1604.log
 else
-  echo "    >> Not building base_ubuntu_1604, file exists"
+  echo "    >> Not building base_ubuntu_1604, file exists!"
 fi
 if [ ! -f ../output/base_ubuntu_1804.img ]; then
   sudo singularity build ../output/base_ubuntu_1804.img ubuntu1804.Singularity > ./base_ubuntu_1804.log
 else
-  echo "    >> Not building base_ubuntu_1804, file exists"
+  echo "    >> Not building base_ubuntu_1804, file exists!"
 fi
 cd ..
 
@@ -25,16 +25,16 @@ for dirs in * ; do
     IMAGE=`cut -d'_' -f2,3 <<< "${dirs}"`
 
     if [[ $IMAGE != "base" ]] && [[ $IMAGE != ".git" ]] && [[ $IMAGE != "output" ]]; then
-      echo "## Building: " ${IMAGE} "##"
+      echo "###### Building: " ${IMAGE} "######"
       if [ -f ./${dirs}/Singularity ]; then
         #echo "hi"
         OUTIMAGE=../output/${IMAGE}.img
         if [ -f $OUTIMAGE ]; then
-          echo "    >> Not building ${IMAGE}, file exists"
+          echo "    >> Not building ${IMAGE}, file exists!"
         else
           cd ${dirs}
           touch ./build.log
-          sudo singularity build OUTIMAGE ./Singularity > ./build.log
+          sudo singularity build ${OUTIMAGE} ./Singularity > ./build.log
           cd ..
         fi
       fi
