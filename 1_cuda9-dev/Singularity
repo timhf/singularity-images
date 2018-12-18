@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
+
+%labels
+  Features base ubuntu 16.04, nvidia cuda 9.2, cudann 7, git, wget, curl
+
+%help
+  This is the base image for all cluster images with GPU support
+
+%post
+  apt-get update
+  apt-get install -y vim
+  apt-get install -y git
+  apt-get install -y wget
+  apt-get install -y htop
+  apt-get install -y curl
+  apt-get install -y xz-utils
