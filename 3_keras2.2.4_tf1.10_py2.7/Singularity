@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/tf1.10-py2.7.img
 
 %labels
-  Features tensflow, keras
+  Features  keras-gpu 2.2.4 on tensorflow 1.10, python 2.7
 
 %help
   Keras 2.2.4 gpu with Tensorflow 1.10 backend on Python 2.7

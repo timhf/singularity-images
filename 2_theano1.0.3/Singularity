@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/python3.6.img
 
 %labels
-  Features numpy, pandas, matplot, tensorflow
+  Features numpy, pandas, matplotlib, python 3.6, Theano 1.0.3, gcc7, openblas
 
 %help
   Theano 1.0.3 Running on python 3.6

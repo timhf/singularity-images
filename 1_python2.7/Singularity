@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/base_ubuntu_1604.img
 
 %labels
-  Features python 2.7.15, conda
+  Features python 2.7.15, conda, ipython2, gcc5
 
 %help
   python, gcc, dpkg, libc6, miniconda

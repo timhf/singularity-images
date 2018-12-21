@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/base_ubuntu_1604.img
 
 %labels
-  Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools
+  Features gcc 4.7, g++ 4.7, buildessentials, cmake, autoconf, automake, boost, libtools
 
 %help
   gcc 4.7 compiling image

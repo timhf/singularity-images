@@ -1,9 +1,6 @@
 Bootstrap: localimage
 From: ../output/base_ubuntu_1804.img
 
-%labels
-  Features python 3.7.1, conda
-
 %help
   python, gcc, dpkg, libc6, miniconda
 
@@ -43,3 +40,8 @@ From: ../output/base_ubuntu_1804.img
   conda update conda
 
   conda install -c anaconda ipython
+
+
+%labels
+  Features python 3.7.1, conda, ipython3, gcc5
+

@@ -22,7 +22,7 @@ cd ..
 
 for dirs in * ; do
   if [ -d ${dirs} ]; then
-    IMAGE=`cut -d'_' -f2,3 <<< "${dirs}"`
+    IMAGE=`cut -d'_' -f2,3,4,5,6,7 <<< "${dirs}"`
 
     if [[ $IMAGE != "base" ]] && [[ $IMAGE != ".git" ]] && [[ $IMAGE != "output" ]]; then
       echo "###### Building: " ${IMAGE} "######"
@@ -35,7 +35,7 @@ for dirs in * ; do
           echo "    >> Not building $IMAGE, file exists!"
         else
           touch ./build.log
-          sudo singularity build $OUTIMAGE ./Singularity > ./build.log
+          sudo singularity build -F $OUTIMAGE ./Singularity > ./build.log
         fi
         cd .. 
       fi

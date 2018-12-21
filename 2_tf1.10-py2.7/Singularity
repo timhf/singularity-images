@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/python2.7.img
 
 %labels
-  Features numpy, pandas, matplot, tensorflow
+  Features numpy, pandas, matplot, tensorflow-gpu, python 2.7, tensorboard, openblas
 
 %help
   Tensorflow 1.10 gpu running on python 2.7

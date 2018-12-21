@@ -1,11 +1,11 @@
 Bootstrap: localimage
-From: ../output/python3.7.img
+From: ../output/python3.6.img
 
 %labels
-  Features numpy, pandas, matplot, scikit-learn and image, scipy, seaborn, statsmodels, bokeh
+  Features python3.6, six, tornado, pillow, numpy, pandas, matplot, scikit-learn and image, scipy, seaborn, statsmodels, bokeh
 
 %help
-  Python 3.7 with all data science packages
+  Python 3.6 with all data science packages
 
 %post
   apt-get update

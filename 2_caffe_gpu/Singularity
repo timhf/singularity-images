@@ -1,0 +1,58 @@
+Bootstrap: localimage
+From: ../output/cuda10-dev.img
+
+%labels
+  Features cuda 10, latest caffe, python3, pip, opencv
+
+%help
+  Caffe 2 running on cuda 10 and ubuntu 18.04
+
+%post
+  apt-get update
+
+  apt-get install -y --no-install-recommends build-essential
+  apt-get install -y --no-install-recommends cmake 
+  apt-get install -y --no-install-recommends git 
+  apt-get install -y --no-install-recommends wget
+  apt-get install -y --no-install-recommends libatlas-base-dev
+  apt-get install -y --no-install-recommends libboost-all-dev
+  apt-get install -y --no-install-recommends libgflags-dev
+  apt-get install -y --no-install-recommends libgoogle-glog-dev
+  apt-get install -y --no-install-recommends libhdf5-serial-dev
+  apt-get install -y --no-install-recommends libleveldb-dev
+  apt-get install -y --no-install-recommends liblmdb-dev
+  apt-get install -y --no-install-recommends libopencv-dev
+  apt-get install -y --no-install-recommends libprotobuf-dev
+  apt-get install -y --no-install-recommends libsnappy-dev
+  apt-get install -y --no-install-recommends protobuf-compiler
+  apt-get install -y --no-install-recommends python-dev
+  apt-get install -y --no-install-recommends python-numpy
+  apt-get install -y --no-install-recommends python-pip
+  apt-get install -y --no-install-recommends python-setuptools
+  apt-get install -y --no-install-recommends python-scipy
+
+  cd /opt/caffe
+
+  git clone --depth 1 https://github.com/BVLC/caffe.git .
+  pip install --upgrade pip 
+  cd python 
+  for req in $(cat requirements.txt) pydot; do pip install $req; done
+
+  cd ..
+  git clone https://github.com/NVIDIA/nccl.git
+  cd nccl 
+  make -j install 
+  cd ..
+  rm -rf nccl
+
+  mkdir build
+  cd build
+  cmake -DUSE_CUDNN=1 -DUSE_NCCL=1 ..
+  make -j8
+
+  export PYTHONPATH=/opt/caffe/python:$PATH
+  export PATH=/opt/caffe/build/tools:$PATH
+  echo "/opt/caffe/build/lib" >> /etc/ld.so.conf.d/caffe.conf 
+  ldconfig
+
+

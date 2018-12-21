@@ -2,7 +2,7 @@ Bootstrap: localimage
 From: ../output/base_ubuntu_1804.img
 
 %labels
-  Features gcc, g++, buildessentials, cmake, autoconf, automake, boost, libtools
+  Features gcc 8, g++ 8, buildessentials, cmake, autoconf, automake, boost, libtools
 
 %help
   gcc 8 building image
